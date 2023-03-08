@@ -23,7 +23,7 @@ function App() {
   const [users, setUsers] = useState([]);
   const [onEdit, setOnEdit] = useState(null);
 
-  const getUsers = async () => {
+  const pegarCliente = async () => {
     try {
       const res = await axios.get("http://localhost:8800");
       setUsers(res.data.sort((a, b) => (a.nome > b.nome ? 1 : -1)));
@@ -34,14 +34,14 @@ function App() {
 
 
   useEffect(() => {
-    getUsers();
+    pegarCliente();
   }, [setUsers]);
   
   return (
     <>
       <Container>
         <Title>Clientes</Title>
-        <Form onEdit={onEdit} setOnEdit={setOnEdit} getUsers={getUsers} />
+        <Form onEdit={onEdit} setOnEdit={setOnEdit} pegarCliente={pegarCliente} />
         <Grid setOnEdit={setOnEdit} users={users} setUsers={setUsers} />
       </Container>
       <ToastContainer autoClose={3000} position={toast.POSITION.BOTTOM_LEFT} />
