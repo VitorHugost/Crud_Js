@@ -39,7 +39,7 @@ const Button = styled.button`
   height: 42px;
 `;
 
-const Form = ({ getUsers, onEdit, setOnEdit }) => {
+const Form = ({ pegarCliente, onEdit, setOnEdit }) => {
   const ref = useRef();
 
   useEffect(() => {
@@ -94,7 +94,7 @@ const Form = ({ getUsers, onEdit, setOnEdit }) => {
       user.endereco.value = "";
   
       setOnEdit(null);
-      getUsers();
+      pegarCliente();
 }
 
 
